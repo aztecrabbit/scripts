@@ -38,9 +38,13 @@ log
 execute pkg upgrade
 execute pkg install git golang
 
-execute rm -rf ~/go ~/psiphon-tunnel-core
+cd ~
+
+execute rm -rf ~/go/src/github.com/Psiphon-Labs/psiphon-tunnel-core ~/psiphon-tunnel-core
 execute go get -u github.com/Psiphon-Labs/psiphon-tunnel-core
 execute cd ~/go/src/github.com/Psiphon-Labs/psiphon-tunnel-core/ConsoleClient
 execute go build -ldflags="-s -w" -o ~/psiphon-tunnel-core
+
+cd ~
 
 log "Done"
